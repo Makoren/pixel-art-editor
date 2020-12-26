@@ -13,6 +13,7 @@
 		245565C72597EC3300D4E0D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 245565C52597EC3300D4E0D2 /* Main.storyboard */; };
 		245565C92597EC3400D4E0D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 245565C82597EC3400D4E0D2 /* Assets.xcassets */; };
 		245565CC2597EC3400D4E0D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 245565CA2597EC3400D4E0D2 /* LaunchScreen.storyboard */; };
+		245565D72597F13400D4E0D2 /* Canvas.sks in Resources */ = {isa = PBXBuildFile; fileRef = 245565D62597F13400D4E0D2 /* Canvas.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		245565C82597EC3400D4E0D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		245565CB2597EC3400D4E0D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		245565CD2597EC3400D4E0D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		245565D62597F13400D4E0D2 /* Canvas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Canvas.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				245565C82597EC3400D4E0D2 /* Assets.xcassets */,
 				245565CA2597EC3400D4E0D2 /* LaunchScreen.storyboard */,
 				245565CD2597EC3400D4E0D2 /* Info.plist */,
+				245565D62597F13400D4E0D2 /* Canvas.sks */,
 			);
 			path = "pixel-art-editor";
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				245565CC2597EC3400D4E0D2 /* LaunchScreen.storyboard in Resources */,
+				245565D72597F13400D4E0D2 /* Canvas.sks in Resources */,
 				245565C92597EC3400D4E0D2 /* Assets.xcassets in Resources */,
 				245565C72597EC3300D4E0D2 /* Main.storyboard in Resources */,
 			);
@@ -289,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46AAF24KZ3;
 				INFOPLIST_FILE = "pixel-art-editor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46AAF24KZ3;
 				INFOPLIST_FILE = "pixel-art-editor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
