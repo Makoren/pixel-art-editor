@@ -10,4 +10,6 @@ import SpriteKit
 
 struct Pixel {
     var color: SKColor
+    var rowPos: Int
+    var colPos: Int
 }

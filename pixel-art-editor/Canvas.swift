@@ -11,6 +11,8 @@ class Canvas: SKView {
 
     let skScene: SKScene
     let grid: SKShapeNode
+    let canvasNode: SKNode
+    
     let gridWidth: Int = 8
     let gridHeight: Int = 6
     let cellSize: Int = 24
@@ -22,8 +24,9 @@ class Canvas: SKView {
         }
         skScene = newScene
         grid = SKShapeNode()
+        canvasNode = skScene.childNode(withName: "Canvas")!
         
-        let row = Array(repeating: Pixel(color: .white), count: gridHeight)
+        let row = Array(repeating: Pixel(color: .red, rowPos: 0, colPos: 0), count: gridHeight)
         cells = Array(repeating: row, count: gridWidth)
         
         // initialize properties before this
@@ -33,6 +36,8 @@ class Canvas: SKView {
         
         grid.path = drawGridLines()
         skScene.addChild(grid)
+        
+        drawPixels()
         
         presentScene(skScene)
     }
@@ -61,6 +66,22 @@ class Canvas: SKView {
         let col = Int(touchPos.x / CGFloat(cellSize))
         let row = Int(touchPos.y / CGFloat(cellSize))
         cells[col][row].color = .blue
+        cells[col][row].rowPos = row
+        cells[col][row].colPos = col
+        drawPixels()
+    }
+    
+    func drawPixels() {
+        for row in 0 ..< gridHeight {
+            for col in 0 ..< gridWidth {
+                let node = SKShapeNode(rect: CGRect(x: CGFloat(col) * CGFloat(cellSize),
+                                                    y: CGFloat(row) * CGFloat(cellSize),
+                                                    width: CGFloat(cellSize), height: CGFloat(cellSize)))
+                node.strokeColor = .clear
+                node.fillColor = cells[col][row].color
+                canvasNode.addChild(node)
+            }
+        }
     }
     
 }
