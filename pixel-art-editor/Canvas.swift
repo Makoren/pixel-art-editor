@@ -11,6 +11,10 @@ class Canvas: SKView {
 
     let skScene: SKScene
     let grid: SKShapeNode
+    let gridWidth: Int = 8
+    let gridHeight: Int = 6
+    let cellSize: Int = 24
+    var cells: [[Pixel]]
     
     required init?(coder: NSCoder) {
         guard let newScene = SKScene(fileNamed: "Canvas") else {
@@ -18,6 +22,9 @@ class Canvas: SKView {
         }
         skScene = newScene
         grid = SKShapeNode()
+        
+        let row = Array(repeating: Pixel(color: .white), count: gridHeight)
+        cells = Array(repeating: row, count: gridWidth)
         
         // initialize properties before this
         super.init(coder: coder)
@@ -30,11 +37,7 @@ class Canvas: SKView {
         presentScene(skScene)
     }
     
-    func drawGridLines() -> CGPath {
-        let gridWidth = 8
-        let gridHeight = 6
-        let cellSize = 24
-        
+    func drawGridLines() -> CGPath {        
         let path = CGMutablePath()
         path.move(to: CGPoint(x: 0, y: 0))
         path.addRect(CGRect(x: 0, y: 0, width: cellSize * gridWidth, height: cellSize * gridHeight))
@@ -53,8 +56,11 @@ class Canvas: SKView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first!
-        print(touch.location(in: grid))
+        let touchPos = touches.first!.location(in: grid)
+        // Get the cell index
+        let col = Int(touchPos.x / CGFloat(cellSize))
+        let row = Int(touchPos.y / CGFloat(cellSize))
+        cells[col][row].color = .blue
     }
     
 }
