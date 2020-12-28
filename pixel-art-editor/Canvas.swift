@@ -62,6 +62,11 @@ class Canvas: SKView {
         // Get the cell index
         let col = Int(touchPos.x / CGFloat(cellSize))
         let row = Int(touchPos.y / CGFloat(cellSize))
+        
+        // ensure you don't try to get an index that's out of range
+        if col < 0 || col > gridWidth - 1 { return }
+        if row < 0 || row > gridHeight - 1 { return }
+        
         drawPixel(at: row, col)
     }
     
