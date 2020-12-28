@@ -21,14 +21,9 @@ class ViewController: UIViewController {
         let data = renderer.pngData { ctx in
             for node in canvasView.canvasNode.children {
                 let shapeNode = node as! SKShapeNode
-                
-                let renderer2 = UIGraphicsImageRenderer(size: CGSize(width: CGFloat(canvasView.cellSize), height: CGFloat(canvasView.cellSize)))
-                let shapeImage = renderer2.image { ctx2 in
-                    ctx.cgContext.setFillColor(shapeNode.fillColor.cgColor)
-                    ctx.cgContext.fill(CGRect(x: shapeNode.position.x, y: shapeNode.position.y, width: CGFloat(canvasView.cellSize), height: CGFloat(canvasView.cellSize)))
-                }
-                print(shapeNode.position)
-                shapeImage.draw(at: CGPoint())
+                ctx.cgContext.setFillColor(shapeNode.fillColor.cgColor)
+                ctx.cgContext.setStrokeColor(UIColor.clear.cgColor)
+                ctx.cgContext.fill(CGRect(x: shapeNode.position.x, y: shapeNode.position.y, width: CGFloat(canvasView.cellSize), height: CGFloat(canvasView.cellSize)))
             }
         }
         
