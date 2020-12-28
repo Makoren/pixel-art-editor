@@ -8,8 +8,6 @@
 import Foundation
 import SpriteKit
 
-struct Pixel {
-    var color: SKColor
-    var rowPos: Int
-    var colPos: Int
+class Pixel {
+    var shapeNode: SKShapeNode?
 }

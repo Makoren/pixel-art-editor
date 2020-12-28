@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		242BF640259940FC0086BEBB /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242BF63F259940FC0086BEBB /* Pixel.swift */; };
+		242BF6432599559C0086BEBB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242BF6422599559C0086BEBB /* Utilities.swift */; };
 		245565C02597EC3300D4E0D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245565BF2597EC3300D4E0D2 /* AppDelegate.swift */; };
 		245565C22597EC3300D4E0D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245565C12597EC3300D4E0D2 /* SceneDelegate.swift */; };
 		245565C42597EC3300D4E0D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245565C32597EC3300D4E0D2 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		242BF63F259940FC0086BEBB /* Pixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
+		242BF6422599559C0086BEBB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		245565BC2597EC3300D4E0D2 /* pixel-art-editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pixel-art-editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		245565BF2597EC3300D4E0D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		245565C12597EC3300D4E0D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				245565D62597F13400D4E0D2 /* Canvas.sks */,
 				245565D92597FA1200D4E0D2 /* Canvas.swift */,
 				242BF63F259940FC0086BEBB /* Pixel.swift */,
+				242BF6422599559C0086BEBB /* Utilities.swift */,
 			);
 			path = "pixel-art-editor";
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242BF6432599559C0086BEBB /* Utilities.swift in Sources */,
 				245565C42597EC3300D4E0D2 /* ViewController.swift in Sources */,
 				245565C02597EC3300D4E0D2 /* AppDelegate.swift in Sources */,
 				242BF640259940FC0086BEBB /* Pixel.swift in Sources */,

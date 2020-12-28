@@ -16,7 +16,6 @@ class Canvas: SKView {
     let gridWidth: Int = 8
     let gridHeight: Int = 6
     let cellSize: Int = 24
-    var cells: [[Pixel]]
     
     required init?(coder: NSCoder) {
         guard let newScene = SKScene(fileNamed: "Canvas") else {
@@ -26,18 +25,16 @@ class Canvas: SKView {
         grid = SKShapeNode()
         canvasNode = skScene.childNode(withName: "Canvas")!
         
-        let row = Array(repeating: Pixel(color: .red, rowPos: 0, colPos: 0), count: gridHeight)
-        cells = Array(repeating: row, count: gridWidth)
-        
         // initialize properties before this
         super.init(coder: coder)
+        
+        initPixels()
+        //drawRandomPixels()
         
         skScene.scaleMode = .aspectFill
         
         grid.path = drawGridLines()
         skScene.addChild(grid)
-        
-        drawPixels()
         
         presentScene(skScene)
     }
@@ -65,22 +62,39 @@ class Canvas: SKView {
         // Get the cell index
         let col = Int(touchPos.x / CGFloat(cellSize))
         let row = Int(touchPos.y / CGFloat(cellSize))
-        cells[col][row].color = .blue
-        cells[col][row].rowPos = row
-        cells[col][row].colPos = col
-        drawPixels()
+        drawPixel(at: row, col)
     }
     
-    func drawPixels() {
+    func initPixels() {
         for row in 0 ..< gridHeight {
             for col in 0 ..< gridWidth {
-                let node = SKShapeNode(rect: CGRect(x: CGFloat(col) * CGFloat(cellSize),
-                                                    y: CGFloat(row) * CGFloat(cellSize),
-                                                    width: CGFloat(cellSize), height: CGFloat(cellSize)))
+                let node = SKShapeNode(rect: CGRect(x: 0, y: 0, width: CGFloat(cellSize), height: CGFloat(cellSize)))
+                node.position.x = CGFloat(col * cellSize)
+                node.position.y = CGFloat(row * cellSize)
+                node.fillColor = .clear
                 node.strokeColor = .clear
-                node.fillColor = cells[col][row].color
                 canvasNode.addChild(node)
             }
+        }
+    }
+    
+    func drawPixel(at row: Int, _ col: Int) {
+        // I'm accessing the canvas node's children rather than making a separate array because I'm certain there are only going to be shape nodes here. I feel there's no need for another array storing the same data.
+        guard let node = canvasNode.children[row * gridWidth + col] as? SKShapeNode else {
+            print("No shape node to draw to.")
+            return
+        }
+        node.fillColor = .blue
+    }
+    
+    // debugging function
+    func drawRandomPixels() {
+        for node in canvasNode.children {
+            guard let shapeNode = node as? SKShapeNode else {
+                print("Current node is not a shape node: \(node)")
+                continue
+            }
+            shapeNode.fillColor = .randomColor()
         }
     }
     
