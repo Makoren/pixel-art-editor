@@ -36,11 +36,27 @@
                     <connections>
                         <outlet property="canvasView" destination="8bC-Xf-vdC" id="KBD-FD-Kug"/>
                         <outlet property="testImageView" destination="oYD-zm-TtO" id="vu9-ny-BSc"/>
+                        <segue destination="hCj-1F-ugm" kind="presentation" identifier="picker" id="nu9-Xu-554"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132.71186440677968" y="90"/>
+            <point key="canvasLocation" x="-122" y="10"/>
+        </scene>
+        <!--File Picker View Controller-->
+        <scene sceneID="kOO-Tj-MDk">
+            <objects>
+                <viewController id="hCj-1F-ugm" customClass="FilePickerViewController" customModule="pixel_art_editor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eMQ-Fy-jqd">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="780"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="oWa-3u-pDa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YUK-Z8-pWH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="10"/>
         </scene>
     </scenes>
     <resources>
