@@ -26,9 +26,8 @@ class ViewController: UIViewController {
                 ctx.cgContext.fill(CGRect(x: shapeNode.position.x, y: shapeNode.position.y, width: 24, height: 24))
             }
         }
-        
-        // closest I can get to fixing orientation
-        let newImage = UIImage(cgImage: img.cgImage!, scale: 1, orientation: .downMirrored)
+
+        let newImage = UIImage(cgImage: img.cgImage!, scale: 2, orientation: .downMirrored)
         let data = UIGraphicsImageRenderer(size: CGSize(width: width, height: height)).pngData { _ in newImage.draw(at: .zero) }
         
         let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("test.png")
