@@ -59,6 +59,14 @@ class Canvas: SKView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        handleTouches(touches)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        handleTouches(touches)
+    }
+    
+    func handleTouches(_ touches: Set<UITouch>) {
         let touchPos = touches.first!.location(in: grid)
         // Get the cell index
         let col = Int(touchPos.x / CGFloat(cellSize))
@@ -92,6 +100,32 @@ class Canvas: SKView {
             return
         }
         node.fillColor = .blue
+    }
+    
+    func redrawCanvas(width newWidth: Int, height newHeight: Int) {
+        // get pixels from canvas
+        // cut out nodes that are outside the new canvas bounds somehow
+        // loop over array to redraw the remaining pixels
+        
+        // this function has the stepper values passed in
+        
+        // if the width changed, increase or decrease grid width
+        if newWidth < gridWidth {
+            for row in 0 ..< gridHeight {
+                let node = canvasNode.children[gridWidth * row]
+                node.removeFromParent()
+            }
+        }
+        
+//        if newHeight < gridHeight {
+//            for row in 0 ..< gridHeight {
+//                let node = canvasNode.children[gridWidth * row - 1]
+//                node.removeFromParent()
+//            }
+//        }
+        
+        gridWidth = newWidth
+        gridHeight = newHeight
     }
     
 }
