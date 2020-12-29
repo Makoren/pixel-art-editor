@@ -17,31 +17,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7J-xP-sav">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7J-xP-sav">
                                 <rect key="frame" x="20" y="20" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Export"/>
                                 <connections>
                                     <action selector="exportButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w7m-fM-5gr"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYD-zm-TtO">
-                                <rect key="frame" x="81" y="191" width="512" height="512"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Kf8-cT-iOJ">
+                                <rect key="frame" x="20" y="651" width="94" height="129"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Width:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOl-WT-Jod">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minimumValue="1" maximumValue="64" translatesAutoresizingMaskIntoConstraints="NO" id="aVv-I5-9fY">
+                                        <rect key="frame" x="0.0" y="28.5" width="94" height="32"/>
+                                        <connections>
+                                            <action selector="canvasWidthChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="hFI-Bs-EQ5"/>
+                                        </connections>
+                                    </stepper>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0R-ZQ-oEw">
+                                        <rect key="frame" x="0.0" y="68.5" width="55.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minimumValue="1" maximumValue="64" translatesAutoresizingMaskIntoConstraints="NO" id="zpW-9J-J0b">
+                                        <rect key="frame" x="0.0" y="97" width="94" height="32"/>
+                                        <connections>
+                                            <action selector="canvasHeightChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="JnE-58-750"/>
+                                        </connections>
+                                    </stepper>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s7J-xP-sav" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="0M5-ht-2Xj"/>
+                            <constraint firstItem="Kf8-cT-iOJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Pnl-Fr-8Yd"/>
+                            <constraint firstItem="s7J-xP-sav" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Snv-2e-GY7"/>
+                            <constraint firstItem="Kf8-cT-iOJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="uSC-Lq-3Tc"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="canvasView" destination="8bC-Xf-vdC" id="KBD-FD-Kug"/>
-                        <outlet property="testImageView" destination="oYD-zm-TtO" id="vu9-ny-BSc"/>
                         <segue destination="hCj-1F-ugm" kind="presentation" identifier="picker" id="nu9-Xu-554"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-122" y="10"/>
+            <point key="canvasLocation" x="-122.03389830508475" y="9.5121951219512191"/>
         </scene>
         <!--File Picker View Controller-->
         <scene sceneID="kOO-Tj-MDk">

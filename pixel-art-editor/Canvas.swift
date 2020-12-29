@@ -13,8 +13,8 @@ class Canvas: SKView {
     let grid: SKShapeNode
     let canvasNode: SKNode
     
-    let gridWidth: Int = 8
-    let gridHeight: Int = 6
+    var gridWidth: Int = 8
+    var gridHeight: Int = 6
     let cellSize: Int = 24
     
     required init?(coder: NSCoder) {
@@ -33,7 +33,7 @@ class Canvas: SKView {
         
         skScene.scaleMode = .aspectFill
         
-        grid.path = drawGridLines()
+        redrawGrid()
         skScene.addChild(grid)
         
         presentScene(skScene)
@@ -57,6 +57,10 @@ class Canvas: SKView {
         return path
     }
     
+    func redrawGrid() {
+        grid.path = drawGridLines()
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touchPos = touches.first!.location(in: grid)
         // Get the cell index
@@ -71,6 +75,7 @@ class Canvas: SKView {
     }
     
     func initPixels() {
+        canvasNode.removeAllChildren()
         for row in 0 ..< gridHeight {
             for col in 0 ..< gridWidth {
                 let node = SKShapeNode(rect: CGRect(x: 0, y: 0, width: CGFloat(cellSize), height: CGFloat(cellSize)))

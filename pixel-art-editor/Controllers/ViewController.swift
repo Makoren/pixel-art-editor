@@ -11,7 +11,6 @@ import SpriteKit
 class ViewController: UIViewController {
 
     @IBOutlet var canvasView: Canvas!
-    @IBOutlet weak var testImageView: UIImageView!
     
     @IBAction func exportButtonPressed(_ sender: Any) {
         let width = CGFloat(canvasView.gridWidth)
@@ -38,5 +37,24 @@ class ViewController: UIViewController {
         print("Successful!")
     }
     
+    @IBAction func canvasWidthChanged(_ sender: Any) {
+        if let stepper = sender as? UIStepper {
+            canvasView.gridWidth = Int(stepper.value)
+            canvasView.initPixels()
+            canvasView.redrawGrid()
+        } else {
+            print("Not a stepper!")
+        }
+    }
+    
+    @IBAction func canvasHeightChanged(_ sender: Any) {
+        if let stepper = sender as? UIStepper {
+            canvasView.gridHeight = Int(stepper.value)
+            canvasView.initPixels()
+            canvasView.redrawGrid()
+        } else {
+            print("Not a stepper!")
+        }
+    }
 }
 
