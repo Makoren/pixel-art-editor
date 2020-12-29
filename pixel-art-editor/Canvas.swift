@@ -73,8 +73,8 @@ class Canvas: SKView {
     func handleTouches(_ touches: Set<UITouch>) {
         let touchPos = touches.first!.location(in: grid)
         // Get the cell index
-        let col = Int(touchPos.x / CGFloat(cellSize))
-        let row = Int(touchPos.y / CGFloat(cellSize))
+        let col = Int(floor(touchPos.x / CGFloat(cellSize)))
+        let row = Int(floor(touchPos.y / CGFloat(cellSize)))
         
         pencil!.drawPixel(at: row, col)
     }
