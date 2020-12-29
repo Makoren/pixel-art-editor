@@ -11,6 +11,15 @@ import SpriteKit
 class ViewController: UIViewController {
 
     @IBOutlet var canvasView: Canvas!
+    @IBOutlet weak var widthStepper: UIStepper!
+    @IBOutlet weak var heightStepper: UIStepper!
+    
+    override func viewDidLoad() {
+        canvasView.gridWidth = Int(widthStepper.value)
+        canvasView.gridHeight = Int(heightStepper.value)
+        canvasView.initPixels()
+        canvasView.drawGridLines()
+    }
     
     @IBAction func exportButtonPressed(_ sender: Any) {
         let width = CGFloat(canvasView.gridWidth)
@@ -41,7 +50,7 @@ class ViewController: UIViewController {
         if let stepper = sender as? UIStepper {
             canvasView.gridWidth = Int(stepper.value)
             canvasView.initPixels()
-            canvasView.redrawGrid()
+            canvasView.drawGridLines()
         } else {
             print("Not a stepper!")
         }
@@ -51,7 +60,7 @@ class ViewController: UIViewController {
         if let stepper = sender as? UIStepper {
             canvasView.gridHeight = Int(stepper.value)
             canvasView.initPixels()
-            canvasView.redrawGrid()
+            canvasView.drawGridLines()
         } else {
             print("Not a stepper!")
         }

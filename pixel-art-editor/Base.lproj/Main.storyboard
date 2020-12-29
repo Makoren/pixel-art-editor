@@ -45,7 +45,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minimumValue="1" maximumValue="64" translatesAutoresizingMaskIntoConstraints="NO" id="zpW-9J-J0b">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6" minimumValue="1" maximumValue="64" translatesAutoresizingMaskIntoConstraints="NO" id="zpW-9J-J0b">
                                         <rect key="frame" x="0.0" y="97" width="94" height="32"/>
                                         <connections>
                                             <action selector="canvasHeightChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="JnE-58-750"/>
@@ -65,6 +65,8 @@
                     </view>
                     <connections>
                         <outlet property="canvasView" destination="8bC-Xf-vdC" id="KBD-FD-Kug"/>
+                        <outlet property="heightStepper" destination="zpW-9J-J0b" id="IIZ-pS-k57"/>
+                        <outlet property="widthStepper" destination="aVv-I5-9fY" id="spF-hD-fRq"/>
                         <segue destination="hCj-1F-ugm" kind="presentation" identifier="picker" id="nu9-Xu-554"/>
                     </connections>
                 </viewController>
