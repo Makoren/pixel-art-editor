@@ -13,6 +13,7 @@ class Canvas: SKView {
     let grid: SKShapeNode
     let canvasNode: SKNode
     let viewController: ViewController
+    var pencil: Pencil?
     
     var gridWidth: Int = 8
     var gridHeight: Int = 6
@@ -24,7 +25,6 @@ class Canvas: SKView {
         }
         
         viewController = UIApplication.shared.windows.first!.rootViewController as! ViewController
-        
         skScene = newScene
         skScene.scaleMode = .aspectFill
         grid = SKShapeNode()
@@ -32,6 +32,10 @@ class Canvas: SKView {
         
         // initialize properties before this
         super.init(coder: coder)
+        
+        // this needed to be optional since it needed to be initialised before super.init,
+        // but I couldn't pass self before super.init. this should be safe to always force unwrap.
+        pencil = Pencil(canvas: self)
         
         initPixels()
         drawGridLines()
@@ -72,7 +76,7 @@ class Canvas: SKView {
         let col = Int(touchPos.x / CGFloat(cellSize))
         let row = Int(touchPos.y / CGFloat(cellSize))
         
-        drawPixel(at: row, col)
+        pencil!.drawPixel(at: row, col)
     }
     
     func initPixels() {
@@ -89,18 +93,7 @@ class Canvas: SKView {
         }
     }
     
-    func drawPixel(at row: Int, _ col: Int) {
-        // ensure you don't try to get an index that's out of range
-        if col < 0 || col > gridWidth - 1 { return }
-        if row < 0 || row > gridHeight - 1 { return }
-        
-        // I'm accessing the canvas node's children rather than making a separate array because I'm certain there are only going to be shape nodes here. I feel there's no need for another array storing the same data.
-        guard let node = canvasNode.children[row * gridWidth + col] as? SKShapeNode else {
-            print("No shape node to draw to.")
-            return
-        }
-        node.fillColor = .blue
-    }
+    
     
     func redrawCanvas(width newWidth: Int, height newHeight: Int) {
         // get pixels from canvas

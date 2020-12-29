@@ -65,5 +65,13 @@ class ViewController: UIViewController {
             print("Not a stepper!")
         }
     }
+    
+    @IBAction func pencilButtonPressed(_ sender: Any) {
+        let cpvc = UIColorPickerViewController()
+        cpvc.delegate = canvasView.pencil!
+        cpvc.selectedColor = canvasView.pencil!.color
+        cpvc.modalPresentationStyle = .fullScreen
+        show(cpvc, sender: sender)
+    }
 }
 

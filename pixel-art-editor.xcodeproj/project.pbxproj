@@ -15,7 +15,7 @@
 		245565CC2597EC3400D4E0D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 245565CA2597EC3400D4E0D2 /* LaunchScreen.storyboard */; };
 		245565D72597F13400D4E0D2 /* Canvas.sks in Resources */ = {isa = PBXBuildFile; fileRef = 245565D62597F13400D4E0D2 /* Canvas.sks */; };
 		245565DA2597FA1200D4E0D2 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245565D92597FA1200D4E0D2 /* Canvas.swift */; };
-		249FF8A0259985F7009B5CB8 /* FilePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249FF89F259985F7009B5CB8 /* FilePickerViewController.swift */; };
+		24D0B849259BE13300A3A8C8 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D0B848259BE13300A3A8C8 /* Pencil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		245565CD2597EC3400D4E0D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		245565D62597F13400D4E0D2 /* Canvas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Canvas.sks; sourceTree = "<group>"; };
 		245565D92597FA1200D4E0D2 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
-		249FF89F259985F7009B5CB8 /* FilePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerViewController.swift; sourceTree = "<group>"; };
+		24D0B848259BE13300A3A8C8 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +71,7 @@
 				245565CD2597EC3400D4E0D2 /* Info.plist */,
 				245565D62597F13400D4E0D2 /* Canvas.sks */,
 				245565D92597FA1200D4E0D2 /* Canvas.swift */,
+				24D0B848259BE13300A3A8C8 /* Pencil.swift */,
 			);
 			path = "pixel-art-editor";
 			sourceTree = "<group>";
@@ -79,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				245565C32597EC3300D4E0D2 /* ViewController.swift */,
-				249FF89F259985F7009B5CB8 /* FilePickerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -157,8 +157,8 @@
 			files = (
 				245565C42597EC3300D4E0D2 /* ViewController.swift in Sources */,
 				245565C02597EC3300D4E0D2 /* AppDelegate.swift in Sources */,
+				24D0B849259BE13300A3A8C8 /* Pencil.swift in Sources */,
 				245565C22597EC3300D4E0D2 /* SceneDelegate.swift in Sources */,
-				249FF8A0259985F7009B5CB8 /* FilePickerViewController.swift in Sources */,
 				245565DA2597FA1200D4E0D2 /* Canvas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,7 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46AAF24KZ3;
 				INFOPLIST_FILE = "pixel-art-editor/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,7 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46AAF24KZ3;
 				INFOPLIST_FILE = "pixel-art-editor/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
