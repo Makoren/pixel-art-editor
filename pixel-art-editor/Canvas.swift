@@ -102,14 +102,20 @@ class Canvas: SKView {
         
         // store node colors in an array
         var colors: [UIColor] = []
+        print(canvasNode.children.count)
         for i in 0 ..< canvasNode.children.count {
             let node = canvasNode.children[i] as! SKShapeNode
-            colors[i] = node.fillColor
+            colors.append(node.fillColor)
         }
         
         gridWidth = newWidth
         gridHeight = newHeight
         initPixels()
+        
+        for i in 0 ..< canvasNode.children.count - 1 {
+            let node = canvasNode.children[i] as! SKShapeNode
+            node.fillColor = colors[i]
+        }
     }
     
 }
