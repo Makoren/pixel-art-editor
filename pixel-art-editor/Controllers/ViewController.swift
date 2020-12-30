@@ -79,5 +79,14 @@ class ViewController: UIViewController {
     @IBAction func eraserButtonPressed(_ sender: Any) {
         canvasView.pencil!.color = .clear
     }
+    
+    @IBAction func panCamera(_ panRecogniser: UIPanGestureRecognizer) {
+        let translation = panRecogniser.translation(in: canvasView)
+        if panRecogniser.state == .changed {
+            canvasView.moveCamera(translation)
+        } else if panRecogniser.state == .ended {
+            canvasView.finishMovingCamera(translation)
+        }
+    }
 }
 

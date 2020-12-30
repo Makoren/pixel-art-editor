@@ -74,6 +74,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="s7J-xP-sav" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="0M5-ht-2Xj"/>
                             <constraint firstItem="WwV-mx-fF0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2im-i3-4b8"/>
@@ -82,6 +83,9 @@
                             <constraint firstItem="WwV-mx-fF0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pWC-e6-CSg"/>
                             <constraint firstItem="Kf8-cT-iOJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="uSC-Lq-3Tc"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="nBZ-6q-ubP" appends="YES" id="bZy-1z-4Zg"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="canvasView" destination="8bC-Xf-vdC" id="KBD-FD-Kug"/>
@@ -90,6 +94,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="2" id="nBZ-6q-ubP">
+                    <scrollTypes key="allowedScrollTypesMask" continuous="YES"/>
+                    <connections>
+                        <action selector="panCamera:" destination="BYZ-38-t0r" id="YmZ-Rj-a3l"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-122.03389830508475" y="9.5121951219512191"/>
         </scene>

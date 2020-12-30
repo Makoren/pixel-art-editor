@@ -71,12 +71,10 @@ class Canvas: SKView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        beginCameraMovement(touches)
         handleDrawing(touches)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        moveCamera(touches)
         handleDrawing(touches)
     }
     
@@ -89,14 +87,19 @@ class Canvas: SKView {
         pencil!.drawPixel(at: row, col)
     }
     
-    func beginCameraMovement(_ touches: Set<UITouch>) {
-        touchStartPos = touches.first!.location(in: skScene)
+    func beginCameraMovement(_ translation: CGPoint) {
+        touchStartPos = translation
         camStartPos = cameraNode.position
     }
     
-    func moveCamera(_ touches: Set<UITouch>) {
-        let difference = touches.first!.location(in: skScene) - touchStartPos
-        cameraNode.position += -difference
+    func moveCamera(_ translation: CGPoint) {
+        // view doesnt move, which means im getting the same position every time i touch the view
+        let newTranslation = skScene.convertPoint(fromView: translation)
+        cameraNode.position += -newTranslation
+    }
+    
+    func finishMovingCamera(_ translation: CGPoint) {
+        
     }
     
     func initPixels() {
