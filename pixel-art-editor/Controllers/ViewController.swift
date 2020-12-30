@@ -48,8 +48,7 @@ class ViewController: UIViewController {
     
     @IBAction func canvasWidthChanged(_ sender: Any) {
         if let stepper = sender as? UIStepper {
-            canvasView.gridWidth = Int(stepper.value)
-            canvasView.initPixels()
+            canvasView.redrawCanvas(width: Int(stepper.value), height: canvasView.gridHeight)
             canvasView.drawGridLines()
         } else {
             print("Not a stepper!")
@@ -58,8 +57,7 @@ class ViewController: UIViewController {
     
     @IBAction func canvasHeightChanged(_ sender: Any) {
         if let stepper = sender as? UIStepper {
-            canvasView.gridHeight = Int(stepper.value)
-            canvasView.initPixels()
+            canvasView.redrawCanvas(width: canvasView.gridWidth, height: Int(stepper.value))
             canvasView.drawGridLines()
         } else {
             print("Not a stepper!")

@@ -93,32 +93,23 @@ class Canvas: SKView {
         }
     }
     
-    
-    
     func redrawCanvas(width newWidth: Int, height newHeight: Int) {
         // get pixels from canvas
         // cut out nodes that are outside the new canvas bounds somehow
         // loop over array to redraw the remaining pixels
         
-        // this function has the stepper values passed in
+        // figure out how to redraw the canvas first
         
-        // if the width changed, increase or decrease grid width
-        if newWidth < gridWidth {
-            for row in 0 ..< gridHeight {
-                let node = canvasNode.children[gridWidth * row]
-                node.removeFromParent()
-            }
+        // store node colors in an array
+        var colors: [UIColor] = []
+        for i in 0 ..< canvasNode.children.count {
+            let node = canvasNode.children[i] as! SKShapeNode
+            colors[i] = node.fillColor
         }
-        
-//        if newHeight < gridHeight {
-//            for row in 0 ..< gridHeight {
-//                let node = canvasNode.children[gridWidth * row - 1]
-//                node.removeFromParent()
-//            }
-//        }
         
         gridWidth = newWidth
         gridHeight = newHeight
+        initPixels()
     }
     
 }
