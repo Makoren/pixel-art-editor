@@ -52,21 +52,34 @@
                                     </stepper>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkI-bG-8Mh">
-                                <rect key="frame" x="22" y="395" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pencil"/>
-                                <connections>
-                                    <action selector="pencilButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x6Z-DU-J5J"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WwV-mx-fF0">
+                                <rect key="frame" x="20" y="376" width="44" height="68"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkI-bG-8Mh">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
+                                        <state key="normal" title="Pencil"/>
+                                        <connections>
+                                            <action selector="pencilButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x6Z-DU-J5J"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wt9-b0-OQj">
+                                        <rect key="frame" x="0.0" y="38" width="44" height="30"/>
+                                        <state key="normal" title="Eraser"/>
+                                        <connections>
+                                            <action selector="eraserButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P83-Cp-eqX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="s7J-xP-sav" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="0M5-ht-2Xj"/>
+                            <constraint firstItem="WwV-mx-fF0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2im-i3-4b8"/>
                             <constraint firstItem="Kf8-cT-iOJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Pnl-Fr-8Yd"/>
                             <constraint firstItem="s7J-xP-sav" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Snv-2e-GY7"/>
+                            <constraint firstItem="WwV-mx-fF0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pWC-e6-CSg"/>
                             <constraint firstItem="Kf8-cT-iOJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="uSC-Lq-3Tc"/>
                         </constraints>
                     </view>

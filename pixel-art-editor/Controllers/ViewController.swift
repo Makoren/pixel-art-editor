@@ -73,5 +73,9 @@ class ViewController: UIViewController {
         cpvc.modalPresentationStyle = .fullScreen
         show(cpvc, sender: sender)
     }
+    
+    @IBAction func eraserButtonPressed(_ sender: Any) {
+        canvasView.pencil!.color = .clear
+    }
 }
 
