@@ -15,6 +15,7 @@
 		245565CC2597EC3400D4E0D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 245565CA2597EC3400D4E0D2 /* LaunchScreen.storyboard */; };
 		245565D72597F13400D4E0D2 /* Canvas.sks in Resources */ = {isa = PBXBuildFile; fileRef = 245565D62597F13400D4E0D2 /* Canvas.sks */; };
 		245565DA2597FA1200D4E0D2 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245565D92597FA1200D4E0D2 /* Canvas.swift */; };
+		248579A3259C158500873846 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248579A2259C158500873846 /* CGPoint+Extensions.swift */; };
 		24D0B849259BE13300A3A8C8 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D0B848259BE13300A3A8C8 /* Pencil.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		245565CD2597EC3400D4E0D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		245565D62597F13400D4E0D2 /* Canvas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Canvas.sks; sourceTree = "<group>"; };
 		245565D92597FA1200D4E0D2 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		248579A2259C158500873846 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		24D0B848259BE13300A3A8C8 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +64,7 @@
 		245565BE2597EC3300D4E0D2 /* pixel-art-editor */ = {
 			isa = PBXGroup;
 			children = (
+				248579A2259C158500873846 /* CGPoint+Extensions.swift */,
 				249FF89C25998545009B5CB8 /* Controllers */,
 				245565BF2597EC3300D4E0D2 /* AppDelegate.swift */,
 				245565C12597EC3300D4E0D2 /* SceneDelegate.swift */,
@@ -159,6 +162,7 @@
 				245565C02597EC3300D4E0D2 /* AppDelegate.swift in Sources */,
 				24D0B849259BE13300A3A8C8 /* Pencil.swift in Sources */,
 				245565C22597EC3300D4E0D2 /* SceneDelegate.swift in Sources */,
+				248579A3259C158500873846 /* CGPoint+Extensions.swift in Sources */,
 				245565DA2597FA1200D4E0D2 /* Canvas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

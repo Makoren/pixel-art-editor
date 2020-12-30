@@ -12,12 +12,17 @@ class Canvas: SKView {
     let skScene: SKScene
     let grid: SKShapeNode
     let canvasNode: SKNode
+    let cameraNode: SKCameraNode
     let viewController: ViewController
     var pencil: Pencil?
     
     var gridWidth: Int = 8
     var gridHeight: Int = 6
     let cellSize: Int = 24
+    
+    // camera properties (really should have a new class for this)
+    var touchStartPos: CGPoint = .zero
+    var camStartPos: CGPoint = .zero
     
     required init?(coder: NSCoder) {
         guard let newScene = SKScene(fileNamed: "Canvas") else {
@@ -28,7 +33,10 @@ class Canvas: SKView {
         skScene = newScene
         skScene.scaleMode = .aspectFill
         grid = SKShapeNode()
+        
         canvasNode = skScene.childNode(withName: "Canvas")!
+        cameraNode = skScene.childNode(withName: "Camera")! as! SKCameraNode
+        skScene.camera = cameraNode
         
         // initialize properties before this
         super.init(coder: coder)
@@ -63,20 +71,32 @@ class Canvas: SKView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        handleTouches(touches)
+        beginCameraMovement(touches)
+        handleDrawing(touches)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        handleTouches(touches)
+        moveCamera(touches)
+        handleDrawing(touches)
     }
     
-    func handleTouches(_ touches: Set<UITouch>) {
+    func handleDrawing(_ touches: Set<UITouch>) {
         let touchPos = touches.first!.location(in: grid)
         // Get the cell index
         let col = Int(floor(touchPos.x / CGFloat(cellSize)))
         let row = Int(floor(touchPos.y / CGFloat(cellSize)))
         
         pencil!.drawPixel(at: row, col)
+    }
+    
+    func beginCameraMovement(_ touches: Set<UITouch>) {
+        touchStartPos = touches.first!.location(in: skScene)
+        camStartPos = cameraNode.position
+    }
+    
+    func moveCamera(_ touches: Set<UITouch>) {
+        let difference = touches.first!.location(in: skScene) - touchStartPos
+        cameraNode.position += -difference
     }
     
     func initPixels() {
