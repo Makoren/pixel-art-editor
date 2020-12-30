@@ -20,8 +20,6 @@ class Pencil: NSObject, UIColorPickerViewControllerDelegate {
         if col < 0 || col > canvas.gridWidth - 1 { return }
         if row < 0 || row > canvas.gridHeight - 1 { return }
         
-        print(row, col)
-        
         // I'm accessing the canvas node's children rather than making a separate array because I'm certain there are only going to be shape nodes here. I feel there's no need for another array storing the same data.
         guard let node = canvas.canvasNode.children[row * canvas.gridWidth + col] as? SKShapeNode else {
             print("No shape node to draw to.")

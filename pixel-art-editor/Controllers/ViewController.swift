@@ -84,8 +84,6 @@ class ViewController: UIViewController {
         let translation = panRecogniser.translation(in: canvasView)
         if panRecogniser.state == .changed {
             canvasView.moveCamera(translation)
-        } else if panRecogniser.state == .ended {
-            canvasView.finishMovingCamera(translation)
         }
     }
 }

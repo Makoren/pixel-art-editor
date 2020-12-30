@@ -87,19 +87,10 @@ class Canvas: SKView {
         pencil!.drawPixel(at: row, col)
     }
     
-    func beginCameraMovement(_ translation: CGPoint) {
-        touchStartPos = translation
-        camStartPos = cameraNode.position
-    }
-    
     func moveCamera(_ translation: CGPoint) {
-        // view doesnt move, which means im getting the same position every time i touch the view
         let newTranslation = skScene.convertPoint(fromView: translation)
+        print(newTranslation)
         cameraNode.position += -newTranslation
-    }
-    
-    func finishMovingCamera(_ translation: CGPoint) {
-        
     }
     
     func initPixels() {
