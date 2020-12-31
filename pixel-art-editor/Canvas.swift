@@ -18,11 +18,7 @@ class Canvas: SKView {
     
     var gridWidth: Int = 8
     var gridHeight: Int = 6
-    let cellSize: Int = 24
-    
-    // camera properties (really should have a new class for this)
-    var touchStartPos: CGPoint = .zero
-    var camStartPos: CGPoint = .zero
+    let cellSize: Int = 16
     
     required init?(coder: NSCoder) {
         guard let newScene = SKScene(fileNamed: "Canvas") else {
@@ -85,12 +81,6 @@ class Canvas: SKView {
         let row = Int(floor(touchPos.y / CGFloat(cellSize)))
         
         pencil!.drawPixel(at: row, col)
-    }
-    
-    func moveCamera(_ translation: CGPoint) {
-        let newTranslation = skScene.convertPoint(fromView: translation)
-        print(newTranslation)
-        cameraNode.position += -newTranslation
     }
     
     func initPixels() {

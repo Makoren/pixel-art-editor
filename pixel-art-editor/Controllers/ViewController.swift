@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var widthStepper: UIStepper!
     @IBOutlet weak var heightStepper: UIStepper!
     
+    var exportedData: Data?
+    
     override func viewDidLoad() {
         canvasView.gridWidth = Int(widthStepper.value)
         canvasView.gridHeight = Int(heightStepper.value)
@@ -38,12 +40,18 @@ class ViewController: UIViewController {
         }
 
         let newImage = UIImage(cgImage: img.cgImage!, scale: 2, orientation: .downMirrored)
-        let data = UIGraphicsImageRenderer(size: CGSize(width: width / 2, height: height / 2)).pngData { _ in newImage.draw(at: .zero) }
+        exportedData = UIGraphicsImageRenderer(size: CGSize(width: width / 2, height: height / 2)).pngData { _ in newImage.draw(at: .zero) }
         
-        let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("test.png")
-        print(filename)
-        try? data.write(to: filename)
-        print("Successful!")
+        // save data to a temporary URL, then save that URL somewhere in Files
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("test.png")
+        do {
+            try exportedData!.write(to: url)
+        } catch {
+            print("error saving image data")
+        }
+        
+        let dpvc = UIDocumentPickerViewController(forExporting: [url])
+        show(dpvc, sender: self)
     }
     
     @IBAction func canvasWidthChanged(_ sender: Any) {
@@ -73,18 +81,11 @@ class ViewController: UIViewController {
         cpvc.delegate = canvasView.pencil!
         cpvc.selectedColor = canvasView.pencil!.color
         cpvc.modalPresentationStyle = .fullScreen
-        show(cpvc, sender: sender)
+        show(cpvc, sender: self)
     }
     
     @IBAction func eraserButtonPressed(_ sender: Any) {
         canvasView.pencil!.color = .clear
-    }
-    
-    @IBAction func panCamera(_ panRecogniser: UIPanGestureRecognizer) {
-        let translation = panRecogniser.translation(in: canvasView)
-        if panRecogniser.state == .changed {
-            canvasView.moveCamera(translation)
-        }
     }
 }
 
